@@ -43,7 +43,7 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public Order update(Order order) {
-        Long orderId = order.getId();
+        final Long orderId = order.getId();
         Order result = findById(orderId)
                 .orElse(null);
         if (result == null) {

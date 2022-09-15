@@ -43,7 +43,7 @@ public class MovieDAOImpl implements MovieDAO {
 
     @Override
     public Movie update(Movie movie) {
-        Long movieId = movie.getId();
+        final Long movieId = movie.getId();
         Movie result = findById(movieId)
                 .orElse(null);
         if (result == null) {
