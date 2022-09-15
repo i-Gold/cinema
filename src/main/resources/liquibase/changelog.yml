@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: DEV-1
+      author: Richard Kamara
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(100)
+
+  - changeSet:
+      id: DEV-2
+      author: Richard Kamara
+      changes:
+        - createTable:
+            tableName: orders
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: date
+                  type: timestamp without time zone
+                  constraints:
+                    nullable: false
+              - column:
+                  name: row
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: place
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: hall
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: double
+                  constraints:
+                    nullable: false
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: movie_fk
+                    references: movies(id)
